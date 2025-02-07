@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-        cheefImage:"url('./src/assets/home/chef-service.jpg')"
+        cheefImage:"url('./src/assets/home/chef-service.jpg')",
+        fechardMenu:"url('./src/assets/home/featured.jpg')"
       }
     },
   },
