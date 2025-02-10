@@ -5,7 +5,9 @@ import profile from '../assets/others/profile.png'
 const Navbar = () => {
     const navlinks = <>
         <NavLink to='/' className={({isActive})=>(isActive?'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110':'mx-7 py-2 px-3 ')}><li>HOME</li></NavLink>
-        <NavLink to='/our-menu' className={({isActive})=>(isActive?'bg-white text-black py-2 px-3 rounded-md  hover:scale-110':'py-2 px-3 ') }><li>OUR MENU</li></NavLink>
+        <NavLink to='/contract-us' className={({isActive})=>(isActive?'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110':'mx-7 py-2 px-3 ')}><li>CONTACT us</li></NavLink>
+        <NavLink to='/our-menu' className={({isActive})=>(isActive?'bg-white text-black py-2 px-3 rounded-md  hover:scale-110':'py-2 px-3 mx-7') }><li>OUR MENU</li></NavLink>
+        <NavLink to='/our-shop' className={({isActive})=>(isActive?'bg-white text-black py-2 px-3 rounded-md  hover:scale-110':'py-2 px-3  mx-7') }><li>OUR SHOP</li></NavLink>
     </>
     return (
         <div className="navbar max-w-7xl mx-auto fixed z-10 opacity-100 bg-[#15151580] text-white ">
