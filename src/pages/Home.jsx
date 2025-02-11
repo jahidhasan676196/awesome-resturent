@@ -9,8 +9,11 @@ import Contract from '../components/Contract';
 import Parallax from '../components/Parallax';
 import Review from '../components/Review';
 import Recomanded from '../components/Recomanded';
+import app from '../../firebase.config';
 
 const Home = () => {
+    console.log('firebse ', app._options
+    );
     return (
         <div>
             <Banner></Banner>
