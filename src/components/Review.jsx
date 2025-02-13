@@ -10,7 +10,7 @@ import Slide from "./Slide";
 const Review = () => {
     const [revies,setRevies]=useState([])
     useEffect(() => {
-        fetch('review.json')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => {
                 setRevies(data)

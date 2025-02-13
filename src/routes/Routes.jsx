@@ -8,6 +8,7 @@ import ContractPage from '../pages/ContractPage';
 import ErorPage from '../components/ErorPage';
 import Login from '../authentication/Login';
 import SignUp from '../authentication/SignUp';
+import PrivateRoute from './PrivateRoute';
 
 
     const router = createBrowserRouter([

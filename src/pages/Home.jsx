@@ -10,12 +10,19 @@ import Parallax from '../components/Parallax';
 import Review from '../components/Review';
 import Recomanded from '../components/Recomanded';
 import app from '../../firebase.config';
+import { Helmet } from 'react-helmet-async';
+
+
+
 
 const Home = () => {
-    console.log('firebse ', app._options
-    );
+    // console.log('firebse ', app._options
+    // );
     return (
         <div>
+            <Helmet>
+                <title>Bisto boss | Home</title>
+            </Helmet>
             <Banner></Banner>
             <Slider></Slider>
             <Bistro></Bistro>

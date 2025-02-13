@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import loginBg from '../assets/others/authentication.png'
 import loginimg from '../assets/others/authentication2.png'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { BsFacebook } from 'react-icons/bs';
 import { IoLogoGoogle } from 'react-icons/io';
 import { FaGithub } from 'react-icons/fa';
@@ -11,20 +11,15 @@ import Swal from 'sweetalert2';
 
 
 const Login = () => {
-    // Swal.fire({
-    //     position: "top-end",
-    //     icon: "success",
-    //     title: "Your work has been saved",
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   });
+    const location=useLocation()
+    const navigate=useNavigate()
+    // console.log(location.state);
     const { user, setUser, LoginInWithEmailPasword, singInWithGoogle } = useProviderContext()
     const handleLoginWithEmailPassword = (e) => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        // console.log(email,password);
         LoginInWithEmailPasword(email, password)
             .then(res => {
                 if (res.user) {
@@ -38,6 +33,7 @@ const Login = () => {
                 }
                 setUser(res.user)
                 console.log(res);
+
             })
             .then(error => {
                 console.log(error);
@@ -48,6 +44,9 @@ const Login = () => {
         singInWithGoogle()
             .then(res => {
                 setUser(res.user)
+                {
+                    location?.state? navigate(location.state):navigate('/') 
+                }
                 console.log(res);
             })
             .then(error => {

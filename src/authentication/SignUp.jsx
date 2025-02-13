@@ -4,10 +4,11 @@ import { FaGithub } from 'react-icons/fa';
 import { IoLogoGoogle } from 'react-icons/io';
 import loginBg from '../assets/others/authentication.png'
 import loginimg from '../assets/others/authentication2.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useProviderContext from '../hooks/useProviderContext';
 
 const SignUp = () => {
+    const navigate=useNavigate()
     const { createUserWithEmailPassword,singInWithGoogle } = useProviderContext()
     const handleSignUp = (e) => {
         e.preventDefault()
@@ -19,11 +20,15 @@ const SignUp = () => {
         // console.log(info);
         createUserWithEmailPassword(email,password)
         .then(res=>{
+            if(res){
+                navigate('/login')
+            }
             console.log(res);
         })
         .then(error=>{
             console.log(error);
         })
+        form.reset()
     }
 
     const handleSignInWithGoogle=()=>{
