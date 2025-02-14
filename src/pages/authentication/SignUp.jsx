@@ -2,10 +2,10 @@ import React from 'react';
 import { BsFacebook } from 'react-icons/bs';
 import { FaGithub } from 'react-icons/fa';
 import { IoLogoGoogle } from 'react-icons/io';
-import loginBg from '../assets/others/authentication.png'
-import loginimg from '../assets/others/authentication2.png'
+import loginBg from '../../assets/others/authentication.png'
+import loginimg from '../../assets/others/authentication2.png'
 import { Link, useNavigate } from 'react-router-dom';
-import useProviderContext from '../hooks/useProviderContext';
+import useProviderContext from '../../hooks/useProviderContext';
 
 const SignUp = () => {
     const navigate=useNavigate()

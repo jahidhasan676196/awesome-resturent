@@ -1,6 +1,6 @@
 import React from 'react';
-import Cover from '../components/Cover';
-import Title from '../components/Title';
+
+
 import useMenu from '../hooks/useMenu';
 import MenuSection from '../components/MenuSection';
 import banner3 from '../assets/menu/banner3.jpg'
@@ -8,6 +8,8 @@ import deserts from '../assets/menu/dessert-bg.jpeg'
 import pizza from '../assets/menu/pizza-bg.jpg'
 import salad from '../assets/menu/salad-bg.jpg'
 import soups from '../assets/menu/soup-bg.jpg'
+import Cover from '../sharedComponent/Cover';
+import Title from '../sharedComponent/Title';
 
 const OurMenu = () => {
     const [menus]=useMenu()

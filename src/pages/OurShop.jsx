@@ -1,7 +1,7 @@
 import React from 'react';
-import Cover from '../components/Cover';
 import shopImg from '../assets/shop/banner2.jpg'
 import ShopMenu from '../components/ShopMenu';
+import Cover from '../sharedComponent/Cover';
 const OurShop = () => {
     return (
         <div>

@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import loginBg from '../assets/others/authentication.png'
-import loginimg from '../assets/others/authentication2.png'
+import React from 'react';
+import loginBg from '../../assets/others/authentication.png'
+import loginimg from '../../assets/others/authentication2.png'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+
+import useProviderContext from '../../hooks/useProviderContext';
+import Swal from 'sweetalert2';
 import { BsFacebook } from 'react-icons/bs';
 import { IoLogoGoogle } from 'react-icons/io';
 import { FaGithub } from 'react-icons/fa';
-import { AuthContext } from '../provider/AuthProvider';
-import useProviderContext from '../hooks/useProviderContext';
-import Swal from 'sweetalert2';
 
 
 const Login = () => {

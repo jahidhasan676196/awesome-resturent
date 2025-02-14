@@ -6,9 +6,16 @@ import OurMenu from '../pages/OurMenu';
 import OurShop from '../pages/OurShop';
 import ContractPage from '../pages/ContractPage';
 import ErorPage from '../components/ErorPage';
-import Login from '../authentication/Login';
-import SignUp from '../authentication/SignUp';
 import PrivateRoute from './PrivateRoute';
+import Login from '../pages/authentication/Login';
+import SignUp from '../pages/authentication/SignUp';
+import DashBoardLayout from '../layout/DashBoardLayout';
+import UserHome from '../pages/dashboard/UserHome'
+import Reservation from '../pages/dashboard/Reservation';
+import PrementHistory from '../pages/dashboard/PrementHistory';
+import MyCard from '../pages/dashboard/MyCard';
+import AddReview from '../pages/dashboard/AddReview';
+import Mybooking from '../pages/dashboard/Mybooking';
 
 
     const router = createBrowserRouter([
@@ -31,13 +38,43 @@ import PrivateRoute from './PrivateRoute';
                 },
                 {
                     path:'/our-shop',
-                    element:<OurShop></OurShop>
+                    element:<PrivateRoute><OurShop></OurShop></PrivateRoute>
                 }
             ]
             
         },
         {path:'/login',element:<Login></Login>},
-        {path:'/sign-up',element:<SignUp></SignUp>}
+        {path:'/sign-up',element:<SignUp></SignUp>},
+        {
+            path:'dashbord',
+            element:<DashBoardLayout></DashBoardLayout>,
+            children:[
+                {
+                    path:'dashbord/userHome',
+                    element:<UserHome></UserHome>
+                },
+                {
+                    path:'dashbord/reservation',
+                    element:<Reservation></Reservation>
+                },
+                {
+                    path:'dashbord/prementHistory',
+                    element:<PrementHistory></PrementHistory>
+                },
+                {
+                    path:'dashbord/mycard',
+                    element:<MyCard></MyCard>
+                },
+                {
+                    path:'dashbord/addReview',
+                    element:<AddReview></AddReview>
+                },
+                {
+                    path:'dashbord/myBokking',
+                    element:<Mybooking></Mybooking>
+                },
+            ]
+        }
     ]);
 
 

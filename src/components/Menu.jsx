@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Title from './Title';
+import Title from '../sharedComponent/Title';
 import MenuCard from './MenuCard';
 import useMenu from '../hooks/useMenu';
 

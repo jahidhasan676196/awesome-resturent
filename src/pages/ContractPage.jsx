@@ -1,10 +1,12 @@
 import React from 'react';
-import Cover from '../components/Cover';
+
 import contractImg from '../assets/contact/banner.jpg'
-import Title from '../components/Title';
+
 import LocationSection from '../components/LocationSection';
 import ContractForm from '../components/ContractForm';
 import { Helmet } from 'react-helmet-async';
+import Cover from '../sharedComponent/Cover';
+import Title from '../sharedComponent/Title';
 
 const ContractPage = () => {
     return (

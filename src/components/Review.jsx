@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Title from "./Title";
+import Title from "../sharedComponent/Title";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';

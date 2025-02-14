@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Title from './Title';
+import Title from '../sharedComponent/Title';
 import CheefCard from './CheefCard';
 
 const Recomanded = () => {
