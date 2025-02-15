@@ -6,10 +6,12 @@ import loginBg from '../../assets/others/authentication.png'
 import loginimg from '../../assets/others/authentication2.png'
 import { Link, useNavigate } from 'react-router-dom';
 import useProviderContext from '../../hooks/useProviderContext';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const SignUp = () => {
-    const navigate=useNavigate()
-    const { createUserWithEmailPassword,singInWithGoogle } = useProviderContext()
+    const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
+    const { createUserWithEmailPassword, singInWithGoogle } = useProviderContext()
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target
@@ -18,27 +20,61 @@ const SignUp = () => {
         const password = form.password.value
         const info = { name, email, password }
         // console.log(info);
-        createUserWithEmailPassword(email,password)
-        .then(res=>{
-            if(res){
-                navigate('/login')
-            }
-            console.log(res);
-        })
-        .then(error=>{
-            console.log(error);
-        })
+        createUserWithEmailPassword(email, password)
+            .then(res => {
+                if (res) {
+                    // console.log(res);
+                    axiosSecure.post('/users', info)
+                        .then(res => {
+                            console.log(res.data.insertedId);
+                            if (res.data.insertedId) {
+                                alert('sign Up sucessfull')
+                            }
+                        })
+                        .then(err => {
+                            console.log(err);
+                        })
+
+
+
+                    // navigate('/login')
+                }
+                console.log(res);
+            })
+            .then(error => {
+                console.log(error);
+            })
+
+
+
+
+
         form.reset()
+
     }
 
-    const handleSignInWithGoogle=()=>{
+    const handleSignInWithGoogle = () => {
         singInWithGoogle()
-        .then(res=>{
-            console.log(res);
-        })
-        .then(error=>{
-            console.log(error);
-        })
+            .then(res => {
+                console.log(res.user);
+                console.log(res.user.displayName);
+                console.log(res.user.email
+                );
+                const info={
+                    name:res.user.displayName,
+                    email:res.user.email
+                }
+                axiosSecure.post('/users', info)
+                .then(res=>{
+                    console.log(res);
+                })
+                .then(err=>{
+                    console.log(err);
+                })
+            })
+            .then(error => {
+                console.log(error);
+            })
     }
     return (
         <div className='h-[900px] flex flex-row-reverse p-24 gap-24' style={{ backgroundImage: `url(${loginBg})` }}>

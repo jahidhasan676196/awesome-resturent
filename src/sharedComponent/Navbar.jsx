@@ -16,7 +16,7 @@ const Navbar = () => {
         {/* <NavLink to='/contract-us' className={({ isActive }) => (isActive ? 'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110' : 'mx-7 py-2 px-3 ')}><li>CONTACT us</li></NavLink> */}
         <NavLink to='/our-menu' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3 mx-7')}><li>OUR MENU</li></NavLink>
         <NavLink to='/our-shop' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>OUR SHOP</li></NavLink>
-        <NavLink to='dashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>
+        <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>
         {
             user && <button className="btn mx-7">
                 Inbox

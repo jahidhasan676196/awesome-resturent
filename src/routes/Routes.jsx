@@ -16,6 +16,12 @@ import PrementHistory from '../pages/dashboard/PrementHistory';
 import MyCard from '../pages/dashboard/MyCard';
 import AddReview from '../pages/dashboard/AddReview';
 import Mybooking from '../pages/dashboard/Mybooking';
+import AdminDashBoard from '../layout/AdminDashBoard';
+import ADHome from '../pages/adminDashBoard/ADHome';
+import ADAddItem from '../pages/adminDashBoard/ADAddItem';
+import ADManageItem from '../pages/adminDashBoard/ADManageItem';
+import ADBooking from '../pages/adminDashBoard/ADBooking';
+import ADallUser from '../pages/adminDashBoard/ADallUser';
 
 
     const router = createBrowserRouter([
@@ -50,7 +56,7 @@ import Mybooking from '../pages/dashboard/Mybooking';
             element:<DashBoardLayout></DashBoardLayout>,
             children:[
                 {
-                    path:'dashbord/userHome',
+                    path:'dashbord',
                     element:<UserHome></UserHome>
                 },
                 {
@@ -74,7 +80,34 @@ import Mybooking from '../pages/dashboard/Mybooking';
                     element:<Mybooking></Mybooking>
                 },
             ]
-        }
+        },
+        {
+            path:'adminDashbord',
+            element:<AdminDashBoard></AdminDashBoard>,
+            children:[
+                {
+                    path:'adminDashbord',
+                    element:<ADHome></ADHome>
+                },
+                {
+                    path:'adminDashbord/addItem',
+                    element:<ADAddItem></ADAddItem>
+                },
+                {
+                    path:'adminDashbord/manageItem',
+                    element:<ADManageItem></ADManageItem>
+                },
+                {
+                    path:'adminDashbord/manageBooking',
+                    element:<ADBooking></ADBooking>
+                },
+                
+                {
+                    path:'adminDashbord/allUser',
+                    element:<ADallUser></ADallUser>
+                },
+            ]
+        },
     ]);
 
 
