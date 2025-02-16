@@ -2,6 +2,7 @@ import React from 'react';
 import { FaHome, FaIdCard, FaUser } from 'react-icons/fa';
 import { FaShop } from 'react-icons/fa6';
 import { IoMenu } from 'react-icons/io5';
+import { FaBook } from "react-icons/fa";
 import { MdCall } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -29,17 +30,6 @@ const Dsidbar = () => {
                 <li> <NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='/'><MdCall></MdCall> Contract </NavLink></li>
             </ul>
         </div>
-        // <div>
-        //     <h3>BISTRO BOSS</h3>
-        //     <ul>
-        //         <li> <Link to='dashbord'> User home</Link></li>
-        //         <li><Link to='dashbord/reservation'> Reservation</Link></li>
-        //         <li> <Link to='dashbord/prementHistory'>Prement History</Link></li>
-        //         <li> <Link to='dashbord/mycard'> My Card</Link></li>
-        //         <li><Link to='dashbord/addReview'> Add Review</Link></li>
-        //         <li> <Link to='dashbord/myBokking'> My Booking </Link></li>
-        //     </ul>
-        // </div>
     );
 };
 

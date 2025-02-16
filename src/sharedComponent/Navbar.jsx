@@ -20,14 +20,12 @@ const Navbar = () => {
         <NavLink to='/our-menu' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3 mx-7')}><li>OUR MENU</li></NavLink>
         <NavLink to='/our-shop' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>OUR SHOP</li></NavLink>
       {
-        admin?.role? <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Adashboard</li></NavLink>:<NavLink to='dashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Udashboard</li></NavLink>
+        admin?.role ? <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Adashboard</li></NavLink>:<Link to='dashbord'><button className="btn mx-7">
+        Inbox
+        <div className="badge badge-secondary">+{cardData.length}</div>
+    </button></Link>
       }
-        {
-            user && <button className="btn mx-7">
-                Inbox
-                <div className="badge badge-secondary">+{cardData.length}</div>
-            </button>
-        }
+       
     </>
     const handleLogOut = () => {
         logOut()

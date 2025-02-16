@@ -2,6 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../../firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import { PiAxeDuotone } from "react-icons/pi";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export const AuthContext = createContext(null)
 
@@ -13,6 +15,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const axiosSecure=useAxiosSecure()
 
 console.log(user);
     // create user in email password
@@ -33,6 +36,18 @@ console.log(user);
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser)
+                const info={email:currentUser?.email}
+                axiosSecure.post('/jwt',info)
+                .then(res=>{
+                    console.log(res.data.token);
+                    if(res.data.token){
+                        localStorage.setItem('access-token',res.data.token)
+                    }
+                })
+                .then(err=>{
+                    console.log(err);
+                })
+                
             }
         })
         return () => {
@@ -42,6 +57,7 @@ console.log(user);
 
     // logout
     const logOut = () => {
+        localStorage.removeItem('access-token')
         return signOut(auth)
     }
 
