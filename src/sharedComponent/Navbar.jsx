@@ -5,10 +5,13 @@ import useProviderContext from '../hooks/useProviderContext';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useCards from '../hooks/useCards';
+import useAdmin from '../hooks/useAdmin';
 
 const Navbar = () => {
    const [cardData]=useCards()
     const { user, logOut, setUser } = useProviderContext()
+    const [admin]=useAdmin()
+    console.log(admin);
 
 
     const navlinks = <>
@@ -16,7 +19,9 @@ const Navbar = () => {
         {/* <NavLink to='/contract-us' className={({ isActive }) => (isActive ? 'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110' : 'mx-7 py-2 px-3 ')}><li>CONTACT us</li></NavLink> */}
         <NavLink to='/our-menu' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3 mx-7')}><li>OUR MENU</li></NavLink>
         <NavLink to='/our-shop' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>OUR SHOP</li></NavLink>
-        <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>
+      {
+        admin?.role? <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Adashboard</li></NavLink>:<NavLink to='dashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Udashboard</li></NavLink>
+      }
         {
             user && <button className="btn mx-7">
                 Inbox
