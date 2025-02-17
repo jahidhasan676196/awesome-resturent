@@ -4,7 +4,7 @@ import useAxiosSecure from './useAxiosSecure';
 
 const useMenu = () => {
     const axiosSecure=useAxiosSecure()
-    const {data: menus=[]} = useQuery(
+    const {data: menus=[],refetch} = useQuery(
         { queryKey: ['menus'],
          queryFn: async ()=>{
            const res= await axiosSecure.get('/menus')
@@ -15,7 +15,7 @@ const useMenu = () => {
 
 
 
-        return [menus]
+        return [menus,refetch]
 };
 
 export default useMenu;

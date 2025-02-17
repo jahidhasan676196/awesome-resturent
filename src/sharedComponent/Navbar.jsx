@@ -16,11 +16,11 @@ const Navbar = () => {
 
     const navlinks = <>
         <NavLink to='/' className={({ isActive }) => (isActive ? 'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110' : 'mx-7 py-2 px-3 ')}><li>HOME</li></NavLink>
-        {/* <NavLink to='/contract-us' className={({ isActive }) => (isActive ? 'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110' : 'mx-7 py-2 px-3 ')}><li>CONTACT us</li></NavLink> */}
+        <NavLink to='/contract-us' className={({ isActive }) => (isActive ? 'bg-white text-black mx-7 py-2 px-3 rounded-md  hover:scale-110' : 'mx-7 py-2 px-3 ')}><li>CONTACT us</li></NavLink>
         <NavLink to='/our-menu' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3 mx-7')}><li>OUR MENU</li></NavLink>
         <NavLink to='/our-shop' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>OUR SHOP</li></NavLink>
       {
-        admin?.role ? <NavLink to='adminDashbord' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>Adashboard</li></NavLink>:<Link to='dashbord'><button className="btn mx-7">
+        admin?.role ? <NavLink to='dashboard' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>:<Link to='dashboard'><button className="btn mx-7">
         Inbox
         <div className="badge badge-secondary">+{cardData.length}</div>
     </button></Link>

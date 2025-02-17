@@ -22,6 +22,8 @@ import ADAddItem from '../pages/adminDashBoard/ADAddItem';
 import ADManageItem from '../pages/adminDashBoard/ADManageItem';
 import ADBooking from '../pages/adminDashBoard/ADBooking';
 import ADallUser from '../pages/adminDashBoard/ADallUser';
+import AdminRoutes from './AdminRoutes';
+import AdminMenuUpdate from '../pages/dashboard/AdminMenuUpdate';
 
 
     const router = createBrowserRouter([
@@ -52,60 +54,61 @@ import ADallUser from '../pages/adminDashBoard/ADallUser';
         {path:'/login',element:<Login></Login>},
         {path:'/sign-up',element:<SignUp></SignUp>},
         {
-            path:'dashbord',
+            path:'dashboard',
             element:<DashBoardLayout></DashBoardLayout>,
             children:[
+                // user dashbroad
                 {
-                    path:'dashbord',
-                    element:<UserHome></UserHome>
+                    index:true,
+                    element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
                 },
                 {
-                    path:'dashbord/reservation',
+                    path:'reservation',
                     element:<Reservation></Reservation>
                 },
                 {
-                    path:'dashbord/prementHistory',
+                    path:'prementHistory',
                     element:<PrementHistory></PrementHistory>
                 },
                 {
-                    path:'dashbord/mycard',
+                    path:'mycard',
                     element:<MyCard></MyCard>
                 },
                 {
-                    path:'dashbord/addReview',
+                    path:'addReview',
                     element:<AddReview></AddReview>
                 },
                 {
-                    path:'dashbord/myBokking',
+                    path:'myBooking',
                     element:<Mybooking></Mybooking>
                 },
-            ]
-        },
-        {
-            path:'adminDashbord',
-            element:<AdminDashBoard></AdminDashBoard>,
-            children:[
+                // admin dashborad
+
                 {
-                    path:'adminDashbord',
+                    path:'dashboard',
                     element:<ADHome></ADHome>
                 },
                 {
-                    path:'adminDashbord/addItem',
+                    path:'addItem',
                     element:<ADAddItem></ADAddItem>
                 },
                 {
-                    path:'adminDashbord/manageItem',
+                    path:'manageItem',
                     element:<ADManageItem></ADManageItem>
                 },
                 {
-                    path:'adminDashbord/manageBooking',
+                    path:'manageBooking',
                     element:<ADBooking></ADBooking>
                 },
                 
                 {
-                    path:'adminDashbord/allUser',
+                    path:'allUser',
                     element:<ADallUser></ADallUser>
                 },
+                {
+                    path:'manageItem/updateElements/:id',
+                    element:<AdminMenuUpdate></AdminMenuUpdate>
+                }
             ]
         },
     ]);
