@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useCards from '../../hooks/useCards';
 import useProviderContext from '../../hooks/useProviderContext';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -53,11 +54,32 @@ const CheckoutForm = () => {
                 }
             }
         })
-        if(confirmErro){
-            console.log('confirm err',confirmErro);
+        if (confirmErro) {
+            console.log('confirm err', confirmErro);
         }
-        else{
-            console.log('paymentInetent',paymentIntent);
+        else {
+            console.log('paymentInetent', paymentIntent);
+            if (paymentIntent.status === 'succeeded') {
+                const info = {
+                    email: user?.email,
+                    totalAmount: totalAmount,
+                    munuIds: cardData.map(item => item.menuId),
+                    ids:cardData.map(item => item._id),
+                    date: new Date(),
+                    categoty:'Food delivery'
+                }
+                const {data}=await axiosSecure.post('/prements',info)
+                console.log(data);
+                if(data.prementItem.insertedId){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "payment sucessfull",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
+            }
         }
 
     }
