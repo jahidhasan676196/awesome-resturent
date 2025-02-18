@@ -42,7 +42,7 @@ const Dsidbar = () => {
                         <li > <NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='dashboard'>
                             <FaHome className='w-6' />
                             User Home</NavLink></li>
-                        <li><NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='reservation'><FaIdCard></FaIdCard> Reservation</NavLink></li>
+                        <li><NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='mycard/reservation'><FaIdCard></FaIdCard> Reservation</NavLink></li>
                         <li> <NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='prementHistory'><IoMenu /> Prement History</NavLink></li>
                         <li> <NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='mycard'> <FaBook></FaBook> My cart</NavLink></li>
                         <li><NavLink className='flex items-center gap-3 text-[#151515] text-base uppercase ' to='addReview'><FaUser></FaUser> Add addReview</NavLink></li>

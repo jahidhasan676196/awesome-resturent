@@ -63,7 +63,7 @@ import AdminMenuUpdate from '../pages/dashboard/AdminMenuUpdate';
                     element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
                 },
                 {
-                    path:'reservation',
+                    path:'mycard/reservation',
                     element:<Reservation></Reservation>
                 },
                 {

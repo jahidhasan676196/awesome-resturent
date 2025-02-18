@@ -16,7 +16,8 @@ const ShopCard = ({item}) => {
             image:image,
             recipe:recipe,
             category:category,
-            email:user?.email
+            email:user?.email,
+            price:price
         }
         console.log(id);
         axiosSecure.post('cards',info)
