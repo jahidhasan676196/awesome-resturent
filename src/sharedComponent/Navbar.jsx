@@ -10,8 +10,8 @@ import useAdmin from '../hooks/useAdmin';
 const Navbar = () => {
    const [cardData]=useCards()
     const { user, logOut, setUser } = useProviderContext()
-    const [admin]=useAdmin()
-    console.log(admin);
+    const [isAdmin]=useAdmin()
+    console.log(isAdmin);
 
 
     const navlinks = <>
@@ -20,7 +20,7 @@ const Navbar = () => {
         <NavLink to='/our-menu' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3 mx-7')}><li>OUR MENU</li></NavLink>
         <NavLink to='/our-shop' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>OUR SHOP</li></NavLink>
       {
-        admin?.role ? <NavLink to='dashboard' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>:<Link to='dashboard'><button className="btn mx-7">
+        isAdmin && user ? <NavLink to='dashboard/adminHome' className={({ isActive }) => (isActive ? 'bg-white text-black py-2 px-3 rounded-md  hover:scale-110' : 'py-2 px-3  mx-7')}><li>dashboard</li></NavLink>:<Link to='dashboard/userHome'><button className="btn mx-7">
         Inbox
         <div className="badge badge-secondary">+{cardData.length}</div>
     </button></Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
 
     }
     return (
-        <div className="navbar  max-w-7xl mx-auto fixed z-10 opacity-100 bg-[#15151580] text-white ">
+        <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-[#15151580] text-white ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

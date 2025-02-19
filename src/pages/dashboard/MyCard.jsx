@@ -30,7 +30,7 @@ const MyCard = () => {
                 <div className='flex justify-between'>
                     <h1 className='text-[#151515] text-3xl font-bold uppercase text-start mb-5'>Total card: {cardData.length}</h1>
                     <h1 className='text-[#151515] text-3xl font-bold uppercase text-start mb-5'>Total Price: {totalprice}</h1>
-                    <Link to='reservation'> <button className='btn bg-[#D1A054] text-white'>Pay</button></Link>
+                    <Link to='payment'> <button disabled={cardData.length==0} className='btn bg-[#D1A054] text-white'>Pay</button></Link>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra space-y-6">
@@ -45,7 +45,7 @@ const MyCard = () => {
                             </tr>
                         </thead>
                         {
-                            cardData.map((item, index) => <tbody className='text-[#737373] font-medium '>
+                            cardData.map((item, index) => <tbody key={item._id}   className='text-[#737373] font-medium '>
                                 {/* row 1 */}
                                 <tr>
                                     <th>{index + 1}</th>

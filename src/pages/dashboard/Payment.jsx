@@ -5,7 +5,7 @@ import CheckoutForm from './CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
 // TODP : 
 const stripePromise = loadStripe(import.meta.env.VITE_Stipe_secret_key);
-const Reservation = () => {
+const Payment = () => {
     return (
         <div>
             <Title
@@ -20,4 +20,4 @@ const Reservation = () => {
     );
 };
 
-export default Reservation;
+export default Payment;

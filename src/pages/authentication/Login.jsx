@@ -13,8 +13,8 @@ import { FaGithub } from 'react-icons/fa';
 const Login = () => {
     const location=useLocation()
     const navigate=useNavigate()
-    // console.log(location.state);
-    const { user, setUser, LoginInWithEmailPasword, singInWithGoogle } = useProviderContext()
+    console.log(location.state);
+    const {  setUser, LoginInWithEmailPasword, singInWithGoogle } = useProviderContext()
     const handleLoginWithEmailPassword = (e) => {
         e.preventDefault()
         const form = e.target
@@ -33,6 +33,9 @@ const Login = () => {
                 }
                 setUser(res.user)
                 console.log(res);
+                {
+                    location?.state ? navigate(location.state): navigate('/')
+                }
 
             })
             .then(error => {

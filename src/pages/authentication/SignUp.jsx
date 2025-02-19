@@ -7,6 +7,7 @@ import loginimg from '../../assets/others/authentication2.png'
 import { Link, useNavigate } from 'react-router-dom';
 import useProviderContext from '../../hooks/useProviderContext';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const axiosSecure = useAxiosSecure()
@@ -28,7 +29,14 @@ const SignUp = () => {
                         .then(res => {
                             console.log(res.data.insertedId);
                             if (res.data.insertedId) {
-                                alert('sign Up sucessfull')
+                                Swal.fire({
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Your work has been saved",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/')
                             }
                         })
                         .then(err => {
@@ -60,17 +68,21 @@ const SignUp = () => {
                 console.log(res.user.displayName);
                 console.log(res.user.email
                 );
-                const info={
-                    name:res.user.displayName,
-                    email:res.user.email
+                const info = {
+                    name: res.user.displayName,
+                    email: res.user.email
                 }
                 axiosSecure.post('/users', info)
-                .then(res=>{
-                    console.log(res);
-                })
-                .then(err=>{
-                    console.log(err);
-                })
+                    .then(res => {
+                        console.log(res.data);
+                        if(res.data){
+                            navigate('/')
+                        }
+                    })
+                    .then(err => {
+                        console.log(err);
+                        
+                    })
             })
             .then(error => {
                 console.log(error);

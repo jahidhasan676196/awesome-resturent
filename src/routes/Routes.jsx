@@ -11,7 +11,6 @@ import Login from '../pages/authentication/Login';
 import SignUp from '../pages/authentication/SignUp';
 import DashBoardLayout from '../layout/DashBoardLayout';
 import UserHome from '../pages/dashboard/UserHome'
-import Reservation from '../pages/dashboard/Reservation';
 import PrementHistory from '../pages/dashboard/PrementHistory';
 import MyCard from '../pages/dashboard/MyCard';
 import AddReview from '../pages/dashboard/AddReview';
@@ -24,6 +23,7 @@ import ADBooking from '../pages/adminDashBoard/ADBooking';
 import ADallUser from '../pages/adminDashBoard/ADallUser';
 import AdminRoutes from './AdminRoutes';
 import AdminMenuUpdate from '../pages/dashboard/AdminMenuUpdate';
+import Payment from '../pages/dashboard/Payment'
 
 
     const router = createBrowserRouter([
@@ -59,55 +59,55 @@ import AdminMenuUpdate from '../pages/dashboard/AdminMenuUpdate';
             children:[
                 // user dashbroad
                 {
-                    index:true,
+                    path:'userHome',
                     element:<PrivateRoute><UserHome></UserHome></PrivateRoute>
                 },
                 {
-                    path:'mycard/reservation',
-                    element:<Reservation></Reservation>
+                    path:'mycard/payment',
+                    element:<PrivateRoute><Payment></Payment></PrivateRoute>
                 },
                 {
                     path:'prementHistory',
-                    element:<PrementHistory></PrementHistory>
+                    element:<PrivateRoute><PrementHistory></PrementHistory></PrivateRoute>
                 },
                 {
                     path:'mycard',
-                    element:<MyCard></MyCard>
+                    element:<PrivateRoute><MyCard></MyCard></PrivateRoute>
                 },
                 {
                     path:'addReview',
-                    element:<AddReview></AddReview>
+                    element:<PrivateRoute><AddReview></AddReview></PrivateRoute>
                 },
                 {
                     path:'myBooking',
-                    element:<Mybooking></Mybooking>
+                    element:<PrivateRoute><Mybooking></Mybooking></PrivateRoute>
                 },
                 // admin dashborad
 
                 {
-                    path:'dashboard',
-                    element:<ADHome></ADHome>
+                    path:'adminHome',
+                    element:<AdminRoutes><ADHome></ADHome></AdminRoutes>
                 },
                 {
                     path:'addItem',
-                    element:<ADAddItem></ADAddItem>
+                    element:<AdminRoutes><ADAddItem></ADAddItem></AdminRoutes>
                 },
                 {
                     path:'manageItem',
-                    element:<ADManageItem></ADManageItem>
+                    element:<AdminRoutes><ADManageItem></ADManageItem></AdminRoutes>
                 },
                 {
                     path:'manageBooking',
-                    element:<ADBooking></ADBooking>
+                    element:<AdminRoutes><ADBooking></ADBooking></AdminRoutes>
                 },
                 
                 {
                     path:'allUser',
-                    element:<ADallUser></ADallUser>
+                    element:<AdminRoutes><ADallUser></ADallUser></AdminRoutes>
                 },
                 {
                     path:'manageItem/updateElements/:id',
-                    element:<AdminMenuUpdate></AdminMenuUpdate>
+                    element:<AdminRoutes><AdminMenuUpdate></AdminMenuUpdate></AdminRoutes>
                 }
             ]
         },
